@@ -26,7 +26,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   story <- reactive({
-    generate_story(input$noun1, input$verb, input$adjective, input$adverb)
+    generate_story(req(input$noun1), req(input$verb), req(input$adjective), req(input$adverb))
   })
   output$story <- renderText({
     story()
